@@ -5,6 +5,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Ocelot.DependencyInjection;
 using Ocelot.Middleware;
+using Ocelot.Provider.Polly;
 
 namespace ApiGateway
 {
@@ -21,7 +22,8 @@ namespace ApiGateway
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddOcelot(Configuration);
+            services.AddOcelot(Configuration)
+                .AddPolly(); 
         }
 
   
@@ -38,6 +40,8 @@ namespace ApiGateway
 
             app.UseHttpsRedirection();
             app.UseMvc();
+
+
           await   app.UseOcelot();
         }
     }

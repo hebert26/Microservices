@@ -12,6 +12,7 @@ namespace OrdersApi.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
+            System.Threading.Thread.Sleep(6000);
             return new string[] { "order 1", "order 2" };
         } 
     }

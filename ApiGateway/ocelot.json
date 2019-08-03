@@ -9,7 +9,12 @@
           "Port": 7002
         }
       ],
-      "UpstreamPathTemplate": "/compose-api/Orders"
+      "UpstreamPathTemplate": "/compose-api/Orders",
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 5000
+      }
     },
     {
       "DownstreamPathTemplate": "/api/Clients",
@@ -20,7 +25,12 @@
           "Port": 7001
         }
       ],
-      "UpstreamPathTemplate": "/compose-api/clients"
+      "UpstreamPathTemplate": "/compose-api/clients",
+      "QoSOptions": {
+        "ExceptionsAllowedBeforeBreaking": 3,
+        "DurationOfBreak": 1000,
+        "TimeoutValue": 5000
+      }
     }
   ],
   "GlobalConfiguration": {
